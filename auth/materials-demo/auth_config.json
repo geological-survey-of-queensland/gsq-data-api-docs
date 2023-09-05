@@ -1,0 +1,5 @@
+{
+    "domain": "geological-survey-of-queensland.au.auth0.com",
+    "clientId": "Gm1bzV5mriUS7hHaT6dCrQaWIS3WXyKm",
+    "audience": "/prod/gsq-dep-tou-dev-backend"
+  }
