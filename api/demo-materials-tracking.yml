@@ -1,0 +1,118 @@
+openapi: 3.0.0
+info:
+  title: Demo Material Movement API
+  version: 1.0.0
+  description: A fictional demo API to illustrate authenticated input and output from cloud environment. 
+servers:
+  - url: https://f5ttvzdni2.execute-api.ap-southeast-2.amazonaws.com
+paths:
+  /materials-event:
+    post:
+      summary: Upload material movenment event
+      security:
+        - BearerAuth: []
+      tags:
+        - Material Movement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  description: The type of action
+                  example: extraction
+                date:
+                  type: string
+                  description: Date when material came into possession
+                  example: 2023-07-29
+                material:
+                  type: string
+                  description: The type of material
+                  example: mixed
+                amount:
+                  type: number
+                  description: The quantity of units
+                  example: 123.45
+                units:
+                  type: string
+                  description: The type of units
+                  example: kg
+                purpose:
+                  type: string
+                  description: The purpose justifying the material exchange
+                  example: landfill
+                from_abn:
+                  type: string
+                  description: Australian Business Number
+                  example: 43588575599
+                to_abn:
+                  type: string
+                  description: Australian Business Number
+                  example: 43569946694
+                method:
+                  type: string
+                  description: The type of method
+                  example: earthworks
+                latitude:
+                  type: number
+                  description: The latitude in decimal degrees
+                  example: -24.23
+                longitude:
+                  type: number
+                  description: The longitude in decimal degrees
+                  example: 145.88
+
+      responses:
+        '200':
+          description: Successfully recorded transaction information
+        '403':
+          description: Access denied 
+        '500':
+          description: Internal Server Error
+  /materials-user-assign:
+    post:
+      summary: Assign users upload, edit or admin rights on an organisation
+      security:
+        - BearerAuth: []
+      tags:
+        - Assign user access
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                abn:
+                  type: string
+                  description: The ABN of the organisation being updated
+                  example: 12345678901
+                user_id:
+                  type: string
+                  description: The Auth0 user_id of the user getting assigned to the organisation
+                  example: oauth2|uat-qld-gov-tell-us-once|f566fe0d-1234-3620-4567-09341df13e83
+                level:
+                  type: string
+                  description: The level of access to be assigned (upload, edit or admin)
+                  example: upload
+      responses:
+        '200':
+          description: Successfully recorded transaction information
+        '403':
+          description: Access denied 
+        '500':
+          description: Internal Server Error
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+tags:
+  - name: Material Movement
+    description: This is a demo, fictional service relating to materials tracking in Queensland.
+    externalDocs:
+      url: https://www.resources.qld.gov.au
