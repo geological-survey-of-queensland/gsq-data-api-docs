@@ -87,7 +87,7 @@ const login = async () => {
     await auth0Client.loginWithRedirect({
       authorizationParams: {
      
-        redirect_uri: window.location.origin
+        redirect_uri: window.location.href
       }
     });
   };
@@ -95,7 +95,7 @@ const login = async () => {
   const logout = () => {
     auth0Client.logout({
       logoutParams: {
-        returnTo: window.location.origin
+        returnTo: window.location.href
       }
     });
   };
