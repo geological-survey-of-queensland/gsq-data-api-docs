@@ -68,8 +68,10 @@ paths:
       responses:
         '200':
           description: Successfully recorded transaction information
+        '401':
+          description: Unauthorized 
         '403':
-          description: Access denied 
+          description: Forbidden 
         '500':
           description: Internal Server Error
   /materials-user-assign:
@@ -101,8 +103,10 @@ paths:
       responses:
         '200':
           description: Successfully recorded transaction information
+        '401':
+          description: Unauthorized
         '403':
-          description: Access denied 
+          description: Forbidden 
         '500':
           description: Internal Server Error
 components:
