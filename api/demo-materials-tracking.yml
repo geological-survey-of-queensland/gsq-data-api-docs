@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Demo Material Movement API
   version: 1.0.0
-  description: A fictional demo API to illustrate authenticated input and output from cloud environment. Get Authorisation token here: https://geological-survey-of-queensland.github.io/gsq-data-api-docs/auth/materials-demo/
+  description: A fictional demo API to illustrate authenticated input and output from cloud environment.
 servers:
   - url: https://f5ttvzdni2.execute-api.ap-southeast-2.amazonaws.com
 paths:
