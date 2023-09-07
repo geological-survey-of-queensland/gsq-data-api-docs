@@ -27,6 +27,10 @@ paths:
                   type: string
                   description: The type of action
                   example: extraction
+                  enum:
+                    - extraction
+                    - delivery
+                    - transformation
                 date:
                   type: string
                   description: Date when material came into possession
@@ -35,6 +39,12 @@ paths:
                   type: string
                   description: The type of material
                   example: mixed
+                  enum:
+                    - paper
+                    - plastic
+                    - glass
+                    - metal
+                    - mixed
                 amount:
                   type: number
                   description: The quantity of units
@@ -43,10 +53,22 @@ paths:
                   type: string
                   description: The type of units
                   example: kg
+                  enum:
+                    - kg
+                    - ton
+                    - m3
+                    - l
+                    - m2
+                    - m
                 purpose:
                   type: string
                   description: The purpose justifying the material exchange
                   example: landfill
+                  enum:
+                    - recycling
+                    - energy recovery
+                    - composting
+                    - landfill
                 from_abn:
                   type: string
                   description: Australian Business Number
@@ -59,6 +81,16 @@ paths:
                   type: string
                   description: The type of method
                   example: earthworks
+                  enum:
+                    - core drilling
+                    - earthworks
+                    - truck haulage
+                    - train haulage
+                    - air freight
+                    - slurry
+                    - ship haulage
+                    - burial
+                    - incineration
                 latitude:
                   type: number
                   description: The latitude in decimal degrees
